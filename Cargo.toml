@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "yew_editor",
+    "yew_web_view",
+    "yew_server"
+]
