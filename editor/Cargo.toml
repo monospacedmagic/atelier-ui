@@ -1,5 +1,5 @@
 [package]
-name = "yew_editor"
+name = "editor"
 version = "0.1.0"
 authors = ["Fletcher Haynes <fletcher@amethyst-engine.org>"]
 edition = "2018"

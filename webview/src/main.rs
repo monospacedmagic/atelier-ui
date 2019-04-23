@@ -7,7 +7,7 @@ use web_view::*;
 fn main() {
     web_view::builder()
         .title("Amethyst Editor")
-        .content(web_view::Content::Url("http://localhost:8000/"))
+        .content(web_view::Content::Url("http://localhost:8080/files/index.html"))
         .size(800, 600)
         .resizable(true)
         .debug(true)

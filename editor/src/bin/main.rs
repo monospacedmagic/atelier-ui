@@ -2,10 +2,10 @@
 
 extern crate yew;
 extern crate web_logger;
-extern crate yew_editor;
+extern crate editor;
 
 use yew::prelude::*;
-use yew_editor::core::model::Model;
+use editor::core::model::Model;
 
 fn main() {
     web_logger::init();

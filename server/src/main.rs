@@ -1,5 +1,10 @@
-use log::{debug, error, info};
 use std::{net::SocketAddr, thread};
+use std::process::Command;
+
+use log::{debug, error, info};
+use env_logger;
+use clap::{Arg, App, SubCommand};
+
 use websocket::sync::Server;
 
 mod android;
@@ -7,11 +12,43 @@ mod command_handler;
 mod commands;
 mod constants;
 mod errors;
+mod http_server;
 
 fn main() {
+    env_logger::init();
+    // First we'll parse our CLI arguments
+    let matches = App::new("Atelier Editor Server")
+                        .version("0.1")
+                        .author("Fletcher Haynes <fletcher@amethyst-engine.org>")
+                        .about("Backend for the WASM front-end for the Amethyst editor")
+                        .arg(Arg::with_name("static_file_root")
+                            .short("r")
+                            .long("static-file-root")
+                            .value_name("STATIC_FILE_ROOT")
+                            .help("Sets the root directory for serving static files")
+                            .takes_value(true))
+                        .get_matches();
+    let static_file_root = matches.value_of("static_file_root").unwrap_or("files");
+    
+    
+
+    // Start the local HTTP server to serve the WASM files
+    let mut file_server = http_server::HttpServer::new(constants::HTTP_HOST.to_string(), constants::HTTP_PORT.to_string(), static_file_root.to_string());
+    thread::spawn(move || {
+        file_server.run()
+    });
+
+    thread::spawn(move || {
+    Command::new("sh")
+        .arg("-c")
+        .arg("atelier-webview")
+        .output()
+        .expect("failed to execute process");
+    });
+
     // Setup the bind string for the server. This will eventually be customizable.
     let bind_string = constants::WS_HOST.to_owned() + ":" + constants::WS_PORT;
-    info!("Server starting on: {:?}", bind_string);
+    info!("WebSocket server starting on: {:?}", bind_string);
     // For now, we'll handle each client in one thread. For now, there should not be many clients connecting.
     // The main one will be the graphical frontend that sends requests back.
     if let Ok(server) = Server::bind(bind_string) {

@@ -1,16 +1,22 @@
-editor:
+atelier-editor:
 	@echo "Building editor..."
-	cargo web build -p yew_editor --release
-	@echo "Editor build!"
+	cargo web build -p editor
+	@echo "Editor built!"
+	cp target/wasm32-unknown-unknown/debug/main.js files/
+	cp target/wasm32-unknown-unknown/debug/main.wasm files/
 
-server:
+atelier-server:
 	@echo "Building server..."
-	cargo build -p yew_server --release
+	cargo build -p server
 	@echo "Server built!"
+	cp target/debug/server /usr/local/bin/atelier-server
+	chmod ugo+x /usr/local/bin/atelier-server
 
-webview:
+atelier-webview:
 	@echo "Building webview..."
-	cargo build -p yew_web_view --release
+	cargo build -p webview
 	@echo "Webview built!"
+	cp target/debug/webview /usr/local/bin/atelier-webview
+	chmod ugo+x /usr/local/bin/atelier-webview
 
-all: server editor webview
+all: atelier-editor atelier-server atelier-webview
