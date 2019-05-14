@@ -7,6 +7,7 @@ use crate::components::input::text_input_modal::TextInputModal;
 use crate::components::navigation::navbar::NavBar;
 use crate::components::navigation::not_implemented_modal::NotImplementedModal;
 use crate::components::navigation::project_browser::ProjectBrowser;
+use crate::components::navigation::editor_toolbar::EditorToolbar;
 use crate::components::prefab::prefab_type_modal::PrefabNewModal;
 use crate::components::prefab::scene::form::Form as SceneForm;
 use crate::components::prefab::ui::form::Form as UIForm;
@@ -231,6 +232,7 @@ impl Renderable<Model> for Model {
     fn view(&self) -> Html<Self> {
         html! {
             <div class="editor-wrapper",>
+                <EditorToolbar: />
                 <NotImplementedModal: />
                 <OpenProjectModal: />
                 <ProjectBrowser: />
