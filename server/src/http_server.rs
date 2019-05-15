@@ -239,7 +239,7 @@ impl HttpServer {
     fn extract_file_extension(path: &str) -> FileExtension {
         let extension: Vec<&str> = path.split(".").collect();
         debug!("Extracting extension: {:#?}", extension);
-        match extension[1] {
+        match extension[extension.len()-1] {
             "css" => {
                 FileExtension::CSS
             },
