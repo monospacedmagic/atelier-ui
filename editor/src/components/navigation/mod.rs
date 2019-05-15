@@ -3,3 +3,4 @@
 pub mod navbar;
 pub mod not_implemented_modal;
 pub mod project_browser;
+pub mod editor_toolbar;
