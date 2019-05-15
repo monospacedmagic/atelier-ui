@@ -1,3 +1,5 @@
+![editor](https://user-images.githubusercontent.com/1938040/57751719-ec44d380-76e6-11e9-9d1e-04b2b2fc6577.png)
+
 # Summary
 
 This repo contains the editor component of Atelier. It is comprised of three crates:
