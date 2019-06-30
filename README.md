@@ -14,7 +14,7 @@ The simplest way to test out the WASM front-end of the editor is via cargo-web a
 
 1. Install [cargo-web](https://github.com/koute/cargo-web)
 2. Type `cd editor`
-3. Type `cargo web-start`
+3. Type `cargo web start`
 
 You can then visit `http://localhost:8000`. Note that this only tests the WASM application, _not_ the server backend or the `stdweb` window.
 
