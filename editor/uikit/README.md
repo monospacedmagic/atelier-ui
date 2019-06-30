@@ -1,10 +1,10 @@
 # UiKit
-First, you need to have the environment for Yarn and Yarn  
+First, you need to have installed Yarn, then
 Run " yarn " command first to set up all the required modules.
-itself installed on your computer in order to build the .less files.
+Make sure to run " yarn add less " if the compiler errors on the first time.
 
 # How to modify/work.
-everything that will be added or changed will be inside the "/custom" folder in uikit.
+everything that will be added or changed will be inside the "/custom" folder in UiKit.
 Do NOT try to modify the .css files, these are only generated files, only change the .less files.
 
 # How to use.
