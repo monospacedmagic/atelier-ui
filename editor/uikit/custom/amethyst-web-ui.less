@@ -9,11 +9,38 @@
 //
 @import "../custom/amethyst-web-ui/components/_import.less";
 
-html{background-color: var(--l-main-bg)}
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
 @global-link-color: #5900ff;
+@base-body-font-family: 'Roboto';
+
+// base editor
+html{font-family: 'Roboto'; color: var(--main-text-color);  background-color: var(--l-main-bg);}
+
+.engien-icon{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 40px;
+}
+
+
 
 // Text
 ::selection { background: rgba(127,64,239,.8); color: #fff;}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
 
 .editor{
     margin-left: 40px;
@@ -26,16 +53,19 @@ html{background-color: var(--l-main-bg)}
 // The theme master colors
 :root{
     --main-bg: var(--l-main-bg);
+    --main-text-color: var(--l-text-color);
 
     // Deafult
-    --de-color: #7F40EF;
+    --de-color: rgba(128, 64, 239, 255);
     --de-toolbar: linear-gradient(180deg, #7F41EF 0%, #9A00FF 100%);
     
     // Light theme
+    --l-text-color: #fff;
     --l-main-bg: #FAEEFF;
     --l-main-secondary-bg: #F8E4FF;
 
     // Dark theme
+    --d-text-color: #fff;
     --d-main-bg: #282631;
     --d-main-secondary-bg: #2C243C;
 

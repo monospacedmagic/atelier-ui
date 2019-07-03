@@ -87,13 +87,13 @@ impl Renderable<NavBar> for NavBar {
     fn view(&self) -> Html<Self> {
         html! {
             <div style=" display: block; white-space: nowrap; backgorund-color: #000; width: 40px; height: 100%; ",></div>
-            <nav uk-navbar="", class="uk-navbar-container", >
+            <nav uk-navbar="", class="uk-navbar-container noselect", >
                 <div class="uk-navbar-left", >
                     <ul class="uk-navbar-nav", >
                         <p href={ "#" }, class="editor-title uk-navbar-item", >{"Amethyst Editor"}</p>
                         <li class="",>
                             <a>{ "Projects" }</a>
-                            <div class="uk-navbar-dropdown", uk-dropdown="pos: bottom-center; offset: -10", >
+                            <div class="uk-navbar-dropdown", >
                                 <ul class="uk-nav uk-navbar-dropdown-nav", >
                                     <li>
                                         <a href="#new-project-modal", uk-toggle="", >{ "New Project" }</a>
@@ -107,7 +107,7 @@ impl Renderable<NavBar> for NavBar {
                         </li>
                         <li>
                             <a>{ "Prefabs" }</a>
-                                <div class="uk-navbar-dropdown", uk-dropdown="pos: bottom-center; offset: -10", >
+                                <div class="uk-navbar-dropdown", >
                                 <ul class="uk-nav uk-navbar-dropdown-nav", >
                                     <li>
                                         <a href="#new-prefab-modal", uk-toggle="", >{ "New" }</a>

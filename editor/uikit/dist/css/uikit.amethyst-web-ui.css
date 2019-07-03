@@ -10,7 +10,7 @@
  */
 html {
   /* 1 */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Roboto';
   font-size: 16px;
   font-weight: normal;
   line-height: 1.5;
@@ -4025,7 +4025,7 @@ ul.uk-nav-sub {
  */
 .uk-navbar-nav > li > a {
   color: #000;
-  text-transform: uppercase;
+  text-transform: capitalize;
   transition: 0.1s ease-in-out;
   transition-property: color, background-color;
 }
@@ -4051,7 +4051,6 @@ ul.uk-nav-sub {
  ========================================================================== */
 .uk-navbar-item {
   color: #000;
-  text-transform: none !important;
 }
 /* Toggle
  ========================================================================== */
@@ -4096,11 +4095,12 @@ ul.uk-nav-sub {
   box-sizing: border-box;
   width: 200px;
   /* 4 */
-  padding: 25px;
-  background: #fff;
+  padding: -2px;
+  background: var(--main-bg);
   color: #666;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
-  border: 0px 0px 0px 0px solid var(--d-color);
+  border: 2px solid var(--de-color);
+  color: var(--main-text-color);
 }
 /* Show */
 .uk-navbar-dropdown.uk-open {
@@ -4111,16 +4111,16 @@ ul.uk-nav-sub {
  */
 /* Direction */
 [class*='uk-navbar-dropdown-top'] {
-  margin-top: -15px;
+  margin-top: 2px;
 }
 [class*='uk-navbar-dropdown-bottom'] {
-  margin-top: 15px;
+  margin-top: -2px;
 }
 [class*='uk-navbar-dropdown-left'] {
-  margin-left: -15px;
+  margin-left: 2px;
 }
 [class*='uk-navbar-dropdown-right'] {
-  margin-left: 15px;
+  margin-left: -2px;
 }
 /*
  * Grid
@@ -4128,14 +4128,14 @@ ul.uk-nav-sub {
  */
 /* Gutter Horizontal */
 .uk-navbar-dropdown-grid {
-  margin-left: -50px;
+  margin-left: -400px;
 }
 .uk-navbar-dropdown-grid > * {
-  padding-left: 50px;
+  padding-left: 400px;
 }
 /* Gutter Vertical */
 .uk-navbar-dropdown-grid > .uk-grid-margin {
-  margin-top: 50px;
+  margin-top: 400px;
 }
 /* Stack */
 .uk-navbar-dropdown-stack .uk-navbar-dropdown-grid > * {
@@ -4213,7 +4213,7 @@ ul.uk-nav-sub {
 /* Dropbar
  ========================================================================== */
 .uk-navbar-dropbar {
-  background: #fff;
+  background: var(--main-bg);
 }
 /*
  * Slide modifier
@@ -4246,15 +4246,15 @@ ul.uk-nav-sub {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 25px;
+  left: 200px;
   border-left: 1px solid #e5e5e5;
 }
 /* Vertical */
 .uk-navbar-dropdown-grid.uk-grid-stack > .uk-grid-margin::before {
   content: "";
   position: absolute;
-  top: -25px;
-  left: 50px;
+  top: -200px;
+  left: 400px;
   right: 0;
   border-top: 1px solid #e5e5e5;
 }
@@ -12184,6 +12184,38 @@ iframe.uk-cover {
     page-break-after: avoid;
   }
 }
+[class*='uk-navbar-dropdown-left'] {
+  margin-left: calc(--2px -200px);
+}
+.uk-navbar-nav li {
+  border-style: solid;
+  border-width: 0px;
+  border-color: var(--de-color);
+  padding: 2px;
+}
+.uk-navbar-nav li:hover {
+  padding: 0px;
+  border-width: 2px;
+}
+address,
+dl,
+fieldset,
+figure,
+ol,
+p,
+pre,
+ul {
+  margin: 0 0 0 0;
+}
+uk-dropdown {
+  pos: bottom-left;
+  offset: -6;
+}
+uk-navbar-dropdown {
+  pos: bottom-left;
+  offset: 0;
+  margin: 0px;
+}
 #editor-toolbar {
   width: 40px;
   height: 100%;
@@ -12196,12 +12228,39 @@ iframe.uk-cover {
 .editor-icon {
   padding: 3px;
 }
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Regular.ttf') format('truetype'),;
+}
 html {
+  font-family: 'Roboto';
+  color: var(--main-text-color);
   background-color: var(--l-main-bg);
+}
+.engien-icon {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  padding: 40px;
 }
 ::selection {
   background: rgba(127, 64, 239, 0.8);
   color: #fff;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
 }
 .editor {
   margin-left: 40px;
@@ -12211,10 +12270,13 @@ html {
 }
 :root {
   --main-bg: var(--l-main-bg);
-  --de-color: #7F40EF;
+  --main-text-color: var(--l-text-color);
+  --de-color: #8040ef;
   --de-toolbar: linear-gradient(180deg, #7F41EF 0%, #9A00FF 100%);
+  --l-text-color: #fff;
   --l-main-bg: #FAEEFF;
   --l-main-secondary-bg: #F8E4FF;
+  --d-text-color: #fff;
   --d-main-bg: #282631;
   --d-main-secondary-bg: #2C243C;
 }
