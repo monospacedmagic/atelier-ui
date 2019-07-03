@@ -35,7 +35,7 @@ impl Renderable<EditorToolbar> for EditorToolbar {
     fn view(&self) -> Html<Self> {
         html! {
           <div id="editor-toolbar",>
-            <img class="editor-icon", src="img/editor-toolbar.svg", />
+            <img draggable="false", class="editor-icon", src="img/editor-toolbar.svg", />
           </div>
         }
     }

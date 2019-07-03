@@ -133,6 +133,7 @@ impl Model {
 
     fn empty_primary_window(&self) -> Html<Self> {
         html! {
+            <img draggable="false", class="engien-icon", src="img/amethyst_logo.svg",>
             <div uk-grid="", class="uk-flex-center", >
                 <div class="uk-width-1-4", ></div>
                 <div class="uk-card uk-card-body uk-width-expand", >
