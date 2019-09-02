@@ -92,7 +92,7 @@ impl Renderable<NavBar> for NavBar {
                     <ul class="uk-navbar-nav", >
                         <p href={ "#" }, class="editor-title uk-navbar-item", >{"Amethyst Editor"}</p>
                         <li class="",>
-                            <a>{ "Projects" }</a>
+                            <a uk-icon="icon: file",>{ "Projects" }</a>
                             <div class="uk-navbar-dropdown", >
                                 <ul class="uk-nav uk-navbar-dropdown-nav", >
                                     <li>
