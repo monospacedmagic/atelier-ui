@@ -1,8 +1,8 @@
 [package]
-name = "app"
+name = "editor"
 version = "0.1.0"
-description = "A Tauri App"
-author = ["you"]
+description = "The official Amethyst editor."
+author = ["mralve <mralve@amethyst-engine.org>"]
 license = ""
 repository = ""
 default-run = "app"
