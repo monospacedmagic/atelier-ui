@@ -42,6 +42,7 @@ export default {
   name: 'PageIndex',
   data () {
     return {
+      welcometext: 'There is currently no project open! Either create a new one, or open a existing.',
       files: [],
       path: './',
       href: null,
@@ -106,12 +107,6 @@ export default {
         }
         promise.catch(err => this.$q.notify(err))
       }
-    }
-  }
-  name: 'PageIndex',
-  data () {
-    return {
-      welcometext: 'There is currently no project open! Either create a new one, or open a existing.'
     }
   }
 }
