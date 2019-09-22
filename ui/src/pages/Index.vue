@@ -38,8 +38,6 @@ export default {
   mounted () {
     setTimeout(() => {
       this.$q.notify('Calling command...')
-      console.log(this.$tauri)
-      /*
       window.tauri.execute('ls', ['-la'])
         .then(output => {
           this.$q.notify(output)
@@ -47,7 +45,6 @@ export default {
         .catch(err => {
           this.$q.notify(`err ${err}`)
         })
-    */
     }, 100)
     // this.getFiles()
   }
