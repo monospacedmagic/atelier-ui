@@ -6,7 +6,7 @@ module.exports = function () {
   return {
     build: {
       distDir: distDir,
-      APP_URL: 'http://localhost:8081'  // must use a localhost server for now
+      APP_URL: 'http://localhost:7550'  // must use a localhost server for now
     },
     ctx: {},
     tauri: {
