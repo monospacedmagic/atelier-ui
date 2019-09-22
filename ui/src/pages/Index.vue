@@ -29,8 +29,8 @@
       <br>
       <q-separator inset />
       <q-card-actions align="right">
-        <FileSelector></FileSelector>
-        <q-btn label="Create new project" color="primary" @click="alert = true" />
+        <FileSelector class="q-ma-md"></FileSelector>
+        <q-btn class="q-ma-md" label="Create new project" color="primary" @click="alert = true" />
       </q-card-actions>
     </q-card>
   </q-page>
@@ -53,6 +53,7 @@ export default {
     }
   },
   mounted () {
+    /* SMOKE TEST
     setTimeout(() => {
       this.$q.notify('Calling command...')
       tauri.execute('ls', ['-la'])
@@ -64,6 +65,7 @@ export default {
         })
     }, 100)
     this.getFiles()
+   */
   },
   methods: {
     getFiles () {
