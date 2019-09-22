@@ -6,7 +6,7 @@ module.exports = function () {
   return {
     build: {
       distDir: distDir,
-      APP_URL: 'http://localhost:8080'  // must use a localhost server for now
+      APP_URL: 'http://localhost:8081'  // must use a localhost server for now
     },
     ctx: {},
     tauri: {
@@ -17,7 +17,7 @@ module.exports = function () {
         active: true
       },
       whitelist: {
-        all: 'false'
+        all: true
       },
       window: {
         title: 'Amethyst Editor'
