@@ -4,7 +4,10 @@
   "description": "The official editor for Amethyst.",
   "productName": "Amethyst Editor",
   "cordovaId": "org.cordova.atelier.editor",
-  "authors": ["mralve <mralve@amethyst-engine.org>", "Daniel Thompson-Yvetot <denjell@quasar.dev>"],
+  "authors": [
+    "mralve <mralve@amethyst-engine.org>",
+    "Daniel Thompson-Yvetot <denjell@quasar.dev>"
+  ],
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
@@ -20,6 +23,8 @@
   },
   "devDependencies": {
     "@quasar/app": "^1.0.0",
+    "@quasar/quasar-app-extension-colorize": "^1.0.0-alpha.1",
+    "@quasar/quasar-app-extension-qwindow": "^1.0.0-alpha.10",
     "@tauri-apps/tauri": "^0.0.1-utility.11",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",

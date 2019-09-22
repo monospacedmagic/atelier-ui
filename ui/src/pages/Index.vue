@@ -29,7 +29,7 @@
       <br>
       <q-separator inset />
       <q-card-actions align="right">
-        <q-btn label="Open project" color="primary" @click="alert = true" />
+        <FileSelector></FileSelector>
         <q-btn label="Create new project" color="primary" @click="alert = true" />
       </q-card-actions>
     </q-card>
@@ -38,6 +38,7 @@
 
 <script>
 import tauri from '../statics/tauri'
+
 export default {
   name: 'PageIndex',
   data () {

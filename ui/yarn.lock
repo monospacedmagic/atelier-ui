@@ -942,6 +942,16 @@
   resolved "https://registry.npmjs.org/@quasar/fastclick/-/fastclick-1.1.3.tgz#dee340717478ad07eed0a2c888a15f6eac40e4a4"
   integrity sha512-XBIu6uDdRVe7gC0Ai9RDKmx+7WHT6sBtJPhOeFV1/gfsQmx1m4c8Q5fpNpOeJr38lOK4szqapPj/R4TZXResCQ==
 
+"@quasar/quasar-app-extension-colorize@^1.0.0-alpha.1":
+  version "1.0.0-alpha.1"
+  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-colorize/-/quasar-app-extension-colorize-1.0.0-alpha.1.tgz#55c8645c2b1d621f13264832f5a258d0114b4368"
+  integrity sha512-udmfCeDHFDO60bDrXCM+LihxZjUenFkAsYJP3MNRTIh/sUeLJdmzwEvZRlzrGMymJBlZhgL+C/arAn+su1Kyyg==
+
+"@quasar/quasar-app-extension-qwindow@^1.0.0-alpha.10":
+  version "1.0.0-alpha.10"
+  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qwindow/-/quasar-app-extension-qwindow-1.0.0-alpha.10.tgz#19c6bf37235bbaab6caf8168575c17bea46a90eb"
+  integrity sha512-t8JegChpxgU2AZ0apyfxj46cUg60U+K0AeAr4NuHOHQ/SyBTcQQOkXfBjs+yUO6ieVq95cVkInONWqQR3XkP9w==
+
 "@tauri-apps/tauri@^0.0.1-utility.11":
   version "0.0.1-utility.11"
   resolved "https://registry.npmjs.org/@tauri-apps/tauri/-/tauri-0.0.1-utility.11.tgz#5d1c05d9315d3d95d226bb6bfc430f5df66621a6"
