@@ -11,7 +11,7 @@
 
       <div class="col-12">
         <q-list>
-          <q-item v-for="file in files" :key="file.path" @click="onFileClick(file)" :clickable="!file.is_dir">
+          <q-item dense v-for="file in files" :key="file.path" @click="onFileClick(file)" :clickable="!file.is_dir">
             <q-item-section>{{ `Path: ${file.path}` }}</q-item-section>
             <q-item-section>{{ `Name: ${file.name}` }}</q-item-section>
             <q-item-section>{{ `Type: ${file.is_dir ? 'dir' : 'file'}` }}</q-item-section>
@@ -47,12 +47,11 @@ export default {
           this.$q.notify(`err ${err}`)
         })
     }, 100)
-    // this.getFiles()
-  }
-  /*,
+    this.getFiles()
+  },
   methods: {
     getFiles () {
-      window.Tauri.listFiles(this.path)
+      tauri.listFiles(this.path)
         .then(files => {
           this.files = files
         })
@@ -76,14 +75,14 @@ export default {
       } else {
         let promise
         if (file.path.includes('.png') || file.path.includes('.jpg')) {
-          promise = window.Tauri.readBinaryFile(file.path)
+          promise = tauri.readBinaryFile(file.path)
             .then(contents => {
               this.arrayBufferToBase64(new Uint8Array(contents), base64 => {
                 this.href = 'data:image/png;base64,' + base64
               })
             })
         } else {
-          promise = window.Tauri.readTextFile(file.path)
+          promise = tauri.readTextFile(file.path)
             .then(contents => {
               this.$q.dialog({
                 title: file.path,
@@ -95,6 +94,5 @@ export default {
       }
     }
   }
-  */
 }
 </script>
