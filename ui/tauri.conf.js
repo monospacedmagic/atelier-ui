@@ -1,12 +1,12 @@
 const
   path = require('path'),
-  distDir = path.resolve(__dirname, './dist')
+  distDir = path.resolve(__dirname, './dist/spa')
 
 module.exports = function () {
   return {
     build: {
       distDir: distDir,
-      APP_URL: 'http://localhost:4000'  // must use a localhost server for now
+      APP_URL: 'http://localhost:7550'  // must use a localhost server for now
     },
     ctx: {},
     tauri: {
@@ -17,10 +17,10 @@ module.exports = function () {
         active: true
       },
       whitelist: {
-        all: 'false'
+        all: true
       },
       window: {
-        title: 'Tauri App'
+        title: 'Amethyst Editor'
       },
       security: {
         csp: 'default-src data: filesystem: ws: http: https: \'unsafe-eval\' \'unsafe-inline\''
