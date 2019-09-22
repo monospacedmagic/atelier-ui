@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import tauri from '../statics/tauri'
 export default {
   name: 'PageIndex',
   data () {
@@ -38,7 +39,7 @@ export default {
   mounted () {
     setTimeout(() => {
       this.$q.notify('Calling command...')
-      window.tauri.execute('ls', ['-la'])
+      tauri.execute('ls', ['-la'])
         .then(output => {
           this.$q.notify(output)
         })
