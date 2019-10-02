@@ -1,49 +1,58 @@
 <template>
-  <q-page class="flex flex-center">
-    <q-card class="welcome-card">
-      <q-card-section>
-        <div class="text-h6">Welcome!</div>
-      </q-card-section>
-      <q-card-section>
-        {{ welcometext }}
-      </q-card-section>
-      <br>
-      <q-card-section>
-        <q-markup-table>
-          <thead>
-            <tr>
-              <th class="text-left">Recent projects</th>
-              <th class="text-right">Amethyst version</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left .text-subtitle2">Frozen Yogurt
-                <div class="text-caption">Path: C:/foo/bar/</div>
-              </td>
-              <td class="text-right">0.14</td>
-            </tr>
-          </tbody>
-        </q-markup-table>
-      </q-card-section>
-      <br>
-      <q-separator inset />
-      <q-card-actions align="right">
-        <FileSelector class="q-ma-md"></FileSelector>
-        <q-btn class="q-ma-md" label="Create new project" color="primary" @click="alert = true" />
-      </q-card-actions>
-    </q-card>
-  </q-page>
+  <div>
+    <q-window
+      ref="window"
+      v-model="visible"
+      title="Amethyst Atelier Project Selector"
+      :actions="['embedded', 'pin', 'maximize', 'fullscreen', 'close']"
+      fullscreen
+      hide-grippers
+      content-class="bg-grey-1"
+      @visible="(v) => visible = v"
+    >
+      <div class="q-pa-md fit">
+        <div class="col">
+          <q-input class="col-12" label="Search folder..." v-model="path" outlined filled @keypress.enter="getFiles()">
+            <template #append>
+              <q-icon class="cursor-pointer" name="search" @click="getFiles()"/>
+            </template>
+          </q-input>
+
+          <img :src="href" v-if="href">
+
+          <div class="col-12">
+            <q-list>
+              <q-item dense v-for="file in files" :key="file.path" @click="onFileClick(file)" :clickable="!file.is_dir">
+                <q-item-section>{{ `Path: ${file.path}` }}</q-item-section>
+                <q-item-section>{{ `Name: ${file.name}` }}</q-item-section>
+                <q-item-section>{{ `Type: ${file.is_dir ? 'dir' : 'file'}` }}</q-item-section>
+              </q-item>
+            </q-list>
+          </div>
+        </div>
+      </div>
+    </q-window>
+    <q-btn
+      v-if="canShowButton === true"
+      label="Choose Project"
+      color="primary"
+      @click="visible = true"
+      style="width: 100%;"
+    />
+  </div>
 </template>
 
 <script>
 import tauri from '../statics/tauri'
-
+document.addEventListener('DOMContentLoaded', function () {
+  tauri.invoke({ cmd: 'init' })
+})
 export default {
-  name: 'PageIndex',
+  name: 'FileSelector',
+
   data () {
     return {
-      welcometext: 'There is currently no project open! Either create a new one, or open a existing.',
+      visible: false,
       files: [],
       path: './',
       href: null,
@@ -52,20 +61,10 @@ export default {
       localStore: 0
     }
   },
-  mounted () {
-    /* SMOKE TEST
-    setTimeout(() => {
-      this.$q.notify('Calling command...')
-      tauri.execute('ls', ['-la'])
-        .then(output => {
-          this.$q.notify(output)
-        })
-        .catch(err => {
-          this.$q.notify(`err ${err}`)
-        })
-    }, 100)
-    this.getFiles()
-   */
+  computed: {
+    canShowButton () {
+      return this.visible !== true
+    }
   },
   methods: {
     getFiles () {
