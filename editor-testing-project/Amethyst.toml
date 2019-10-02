@@ -1,0 +1,3 @@
+# Currently a pitch, but this is where we but all the meta data for the editor to use.
+# We need to store a string of the project name, target version of the engien,
+# What pagages/plugins the project depends on
