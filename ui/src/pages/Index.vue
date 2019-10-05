@@ -30,7 +30,7 @@
       <q-separator inset />
       <q-card-actions align="right">
         <FileSelector class="q-ma-md"></FileSelector>
-        <q-btn class="q-ma-md" label="Create new project" color="primary" @click="alert = true" />
+        <NewProject class="q-ma-md"></NewProject>
       </q-card-actions>
     </q-card>
   </q-page>

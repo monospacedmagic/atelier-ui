@@ -3,7 +3,7 @@
     <q-window
       ref="window"
       v-model="visible"
-      title="Amethyst Project Browser"
+      title="New Amethyst Project"
       :actions="['close']"
       fullscreen
       hide-grippers
@@ -17,7 +17,9 @@
               <q-icon class="cursor-pointer" name="search" @click="getFiles()"/>
             </template>
           </q-input>
+
           <img :src="href" v-if="href">
+
           <div class="col-12">
             <q-list>
               <q-item dense v-for="file in files" :key="file.path" @click="onFileClick(file)" :clickable="!file.is_dir">
@@ -32,7 +34,7 @@
     </q-window>
     <q-btn
       v-if="canShowButton === true"
-      label="Choose Project"
+      label="Create new project"
       color="primary"
       @click="visible = true"
       style="width: 100%;"
@@ -46,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
   tauri.invoke({ cmd: 'init' })
 })
 export default {
-  name: 'FileSelector',
+  name: 'NewProject',
+
   data () {
     return {
       visible: false,
@@ -88,7 +91,7 @@ export default {
         this.$q.notify('Dir click not implemented')
       } else {
         let promise
-        if (file.path.includes('.png') || file.path.includes('.jpg')) {
+        if (file.path.includes('Amethyst.toml')) {
           promise = tauri.readBinaryFile(file.path)
             .then(contents => {
               this.arrayBufferToBase64(new Uint8Array(contents), base64 => {
