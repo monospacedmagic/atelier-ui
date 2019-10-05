@@ -27,6 +27,8 @@
         </q-markup-table>
       </q-card-section>
       <br>
+      <q-btn class="q-ma-md" label="Send custom cmd to rust" color="primary" @click="pingToRust" />
+
       <q-separator inset />
       <q-card-actions align="right">
         <FileSelector class="q-ma-md"></FileSelector>
@@ -38,6 +40,10 @@
 
 <script>
 import tauri from '../statics/tauri'
+
+document.addEventListener('DOMContentLoaded', function () {
+  tauri.invoke({ cmd: 'init' })
+})
 
 export default {
   name: 'PageIndex',
@@ -54,7 +60,7 @@ export default {
   },
   mounted () {
     /* SMOKE TEST
-    setTimeout(() => {
+
       this.$q.notify('Calling command...')
       tauri.execute('ls', ['-la'])
         .then(output => {
@@ -68,6 +74,9 @@ export default {
    */
   },
   methods: {
+    pingToRust () {
+      tauri.invoke({ cmd: 'myCustomCommand', argument: 'thing' })
+    },
     getFiles () {
       tauri.listFiles(this.path)
         .then(files => {

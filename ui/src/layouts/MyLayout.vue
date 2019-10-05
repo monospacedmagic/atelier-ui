@@ -6,10 +6,13 @@
         <q-toolbar-title>
           Amethyst Editor
         </q-toolbar-title>
+        <q-btn to="/playground">Playground</q-btn>
       </q-toolbar>
     </q-header>
     <q-page-container>
-      <router-view />
+      <keep-alive include="playground">
+        <router-view />
+      </keep-alive>
     </q-page-container>
   </q-layout>
 </template>
