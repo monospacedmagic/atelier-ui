@@ -1,5 +1,5 @@
 [package]
-name = "amethyst-starter-2d"
+name = "editor-pong"
 version = "0.1.0"
 authors = ["MrAlve <mralve@amethyst-engine.org>", "Daniel Thompson-Yvetot <denjell@quasar.dev>"]
 edition = "2018"
