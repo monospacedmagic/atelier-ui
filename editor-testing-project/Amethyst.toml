@@ -1,3 +1,11 @@
-# Currently a pitch, but this is where we but all the meta data for the editor to use.
-# We need to store a string of the project name, target version of the engien,
-# What pagages/plugins the project depends on
+[ProjectConfig]
+project_name = "Editor Pong!"
+project_author = "Alve Larsson, Daniel Thompson-Yvetot"
+project_version = 0.01
+project_graphics_api = "Vulkan"
+
+[EditorConfig]
+editor_default_scene = "None"
+
+[EngineConfig]
+engine_version = 0.14
