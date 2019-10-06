@@ -1,8 +1,10 @@
 ![editor](https://raw.githubusercontent.com/mralve/atelier-editor/master/repo-content/editor.png)
 
-# Summary
+# The Atelier project
+The editor is part of the Atelier project, the editor is referred to as Atelier-Ui, while Atelier-assets is the actual asset system that will be integrated into amethyst.
 
-This is the official Editor for Amethyst
+please partake in the very important MVP discussion regarding this repo,
+https://community.amethyst.rs/t/atelier-mvp-discussion/1167
 
 
 ## Dev guide
