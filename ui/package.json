@@ -1,8 +1,8 @@
 {
-  "name": "atelier-editor-ui",
+  "name": "atelier-ui",
   "version": "0.0.1",
   "description": "The official editor for Amethyst.",
-  "productName": "Amethyst Editor",
+  "productName": "Atelier UI",
   "cordovaId": "org.cordova.atelier.editor",
   "authors": [
     "mralve <mralve@amethyst-engine.org>",

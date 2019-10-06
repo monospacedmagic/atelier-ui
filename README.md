@@ -15,19 +15,19 @@ This process will be changing imminently.
 To run:
 ```
 $ cd ui && yarn
-$ quasar dev
+$ yarn quasar dev
 ``` 
-#### note the port that quasar launches on, eg. :8080 
+#### note the port that quasar launches on, eg. :7551
 > edit ui/tauri.conf.js
 
 ```yaml
     build: {
       distDir: distDir,
-      APP_URL: 'http://localhost:8080'  // must use a localhost server for now
+      APP_URL: 'http://localhost:7551'  // must use a localhost server for now
     },
 ```
 
 then:
 ```
-$ tauri dev
+$ yarn tauri dev
 ```
