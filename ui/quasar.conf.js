@@ -82,7 +82,7 @@ module.exports = function (ctx) {
     devServer: {
       // https: true,
       port: 7551,
-      open: 'tauri dev' // automatically start tauri
+      open: false
     },
 
     // animations: 'all', // --- includes all animations
