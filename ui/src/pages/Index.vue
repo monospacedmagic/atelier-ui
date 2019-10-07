@@ -27,7 +27,11 @@
         </q-markup-table>
       </q-card-section>
       <br>
-      <q-btn class="q-ma-md" label="Send custom cmd to rust" color="primary" @click="pingToRust" />
+      <div class="row q-pa-sm">
+        <q-input v-model="entry" label="MSG"></q-input>
+        <q-btn class="q-ma-md" label="Custom CMD" color="primary" @click="pingToRust" />
+        <q-btn v-if="sendEvt" class="q-ma-md" label="Send Event" color="primary" @click="eventToRust" />
+      </div>
 
       <q-separator inset />
       <q-card-actions align="right">
@@ -40,6 +44,7 @@
 
 <script>
 import tauri from '../statics/tauri'
+window.tauri = tauri
 
 document.addEventListener('DOMContentLoaded', function () {
   tauri.invoke({ cmd: 'init' })
@@ -55,27 +60,36 @@ export default {
       href: null,
       hashTime: '',
       plugins: 'none found',
-      localStore: 0
+      localStore: 0,
+      entry: 'Don\'t be eval',
+      sendEvt: false
     }
   },
   mounted () {
-    /* SMOKE TEST
-
-      this.$q.notify('Calling command...')
-      tauri.execute('ls', ['-la'])
-        .then(output => {
-          this.$q.notify(output)
-        })
-        .catch(err => {
-          this.$q.notify(`err ${err}`)
-        })
-    }, 100)
-    this.getFiles()
-   */
+    tauri.addEventListener('reply', res => {
+      console.table(res)
+      this.entry = res.payload.msg
+      alert(res.payload.msg)
+      this.sendEvt = false
+    }, true)
   },
   methods: {
     pingToRust () {
-      tauri.invoke({ cmd: 'myCustomCommand', argument: 'thing' })
+      // This will merely send the message to the Rust STDOUT
+      // need to "prime the pump"
+      tauri.invoke({ cmd: 'myCustomCommand', argument: this.entry })
+      this.sendEvt = true
+    },
+    eventToRust () {
+      tauri.invoke({ cmd: 'emit', event: 'hello', payload: this.entry })
+      tauri.addEventListener('reply', res => {
+        console.table(res)
+        this.entry = res.payload.msg
+        alert(res.payload.msg)
+        this.sendEvt = false
+      }, true)
+      // tauri.emit('hello', this.entry)
+      // tauri.emit is shorthand for: tauri.invoke({ cmd: 'emit', event: 'hello', payload: this.entry })
     },
     getFiles () {
       tauri.listFiles(this.path)

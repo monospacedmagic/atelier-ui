@@ -7,9 +7,7 @@
       <MacButtons v-if="$q.platform.is.mac"></MacButtons>
       <file-menu style="z-index:10"/>
       <q-space></q-space>
-      <q-btn v-if="!$q.platform.is.mac" dense flat :icon="icons.onTop" @click.native="onTopApp" />
-      <q-btn v-if="!$q.platform.is.mac" dense flat :icon="icons.maximize" @click.native="maximizeApp" />
-      <q-btn v-if="!$q.platform.is.mac" dense flat icon="close" @click.native="closeApp" />
+
     </q-bar>
     <q-page-container>
       <keep-alive include="playground">

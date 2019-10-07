@@ -34,19 +34,19 @@ const tauri = {
     external.invoke(JSON.stringify(args))
   },
 
-  addEventListener (evt, handler, once = false) {
+  addEventListener (event, handler, once = false) {
     this.invoke({
       cmd: 'addEventListener',
-      evt,
+      event,
       handler: this.transformCallback(handler, once),
       once
     })
   },
 
-  emit (evt, payload) {
+  emit (event, payload) {
     this.invoke({
       cmd: 'emit',
-      evt,
+      event: event,
       payload
     })
   },
