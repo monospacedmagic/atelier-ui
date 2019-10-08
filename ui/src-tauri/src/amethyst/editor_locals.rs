@@ -6,7 +6,7 @@ use std::io;
 /// This is the toml struct that stores data about opened projects locally
 #[derive(Deserialize, Serialize)]
 pub struct EditorLocalStorage{
-    pub Projects: EditorProjectReference,
+    pub LocalProject: Vec<EditorProjectReference>,
 }
 
 #[derive(Deserialize, Serialize)]
@@ -15,7 +15,7 @@ pub struct EditorProjectReference{
     pub ProjectName: String,
     /// Path to the root dir where Amethyst.toml is found.
     pub ProjectPath: String,
-    pub ProjectEngineVersion: i32,
+    pub ProjectEngineVersion: f32,
     /// Date and time.
     pub ProjectLastModified: String
 }
