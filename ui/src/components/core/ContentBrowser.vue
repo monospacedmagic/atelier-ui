@@ -1,10 +1,9 @@
-// This is going to be replaced with core/ContentBrowser
 <template>
   <div>
     <q-window
       ref="window"
       v-model="visible"
-      title="New Amethyst Project"
+      title="Content Browser"
       :actions="['close']"
       fullscreen
       hide-grippers
@@ -18,9 +17,7 @@
               <q-icon class="cursor-pointer" name="search" @click="getFiles()"/>
             </template>
           </q-input>
-
           <img :src="href" v-if="href">
-
           <div class="col-12">
             <q-list>
               <q-item dense v-for="file in files" :key="file.path" @click="onFileClick(file)" :clickable="!file.is_dir">
@@ -35,7 +32,7 @@
     </q-window>
     <q-btn
       v-if="canShowButton === true"
-      label="Create new project"
+      label="Content Browser"
       color="primary"
       @click="visible = true"
       style="width: 100%;"
@@ -44,13 +41,12 @@
 </template>
 
 <script>
-import tauri from '../statics/tauri'
+import tauri from '../../statics/tauri'
 document.addEventListener('DOMContentLoaded', function () {
   tauri.invoke({ cmd: 'init' })
 })
 export default {
-  name: 'NewProject',
-
+  name: 'ContentBrowser',
   data () {
     return {
       visible: false,
@@ -92,7 +88,7 @@ export default {
         this.$q.notify('Dir click not implemented')
       } else {
         let promise
-        if (file.path.includes('Amethyst.toml')) {
+        if (file.path.includes('.png') || file.path.includes('.jpg')) {
           promise = tauri.readBinaryFile(file.path)
             .then(contents => {
               this.arrayBufferToBase64(new Uint8Array(contents), base64 => {

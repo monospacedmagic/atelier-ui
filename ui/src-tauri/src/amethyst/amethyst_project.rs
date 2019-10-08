@@ -34,7 +34,7 @@ pub struct AmethystProject{
 }
 
 /// Deserialize the settings from path
-pub fn amethystProject_Deserialize(path: String) -> Result<AmethystProject, io::Error> {
+pub fn deserialize(path: String) -> Result<AmethystProject, io::Error> {
  
     let mut string_data = String::new();
     string_data = match fs::read_to_string(&path){
@@ -46,8 +46,8 @@ pub fn amethystProject_Deserialize(path: String) -> Result<AmethystProject, io::
     Ok(config)
 }
 
-/// Serializes the settings to path
-pub fn amethystProject_Serialize(path: String, config: AmethystProject) -> Result<(), io::Error> {
+/// Serializes the settings to path or creates a new toml file.
+pub fn serialize(path: String, config: AmethystProject) -> Result<(), io::Error> {
     
     match fs::write(&path, toml::to_string(&config).unwrap()){
         Err(err) => panic!("couldn't write {}: {}", &path, err.description()),

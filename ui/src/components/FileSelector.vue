@@ -1,3 +1,4 @@
+// This is going to be replaced with core/ContentBrowser
 <template>
   <div>
     <q-window
