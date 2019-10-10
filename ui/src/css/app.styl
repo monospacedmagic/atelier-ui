@@ -1,15 +1,66 @@
-// app global css in Stylus form
 
-.welcome-card{
-  width: 100%
-  max-width: 550px
+// Official Editor style document is here https://www.figma.com/file/5erjFwt6vvOS6GDNyQfU7X/Editor-Theme-Light-WIP?node-id=0%3A1
+// Editor theme light.
+:root {
+  // Backgrounds
+  --editor-bg-primary: #F5F5F5;
+  --editor-bg-secondary: #EAEAEA;
+  --editor-bg-third: #DCDCDC;
+
+  // Fonts
+  --editor-font-primary: #474747;
+
+  // Node graphs
+
+  // Node data flow
+  --ndf-call: #597EFF;
+  --ndf-float: #53DB61;
+  --ndf-int: #00C7AF;
+  --ndf-string: #DB53CD;
+  --ndf-bool: #C70000;
 }
 
-.amethyst-titlebar{
-    //background-blend-mode: overlay;
-    //border: 3px solid rgba(255, 255, 255, 0.22);
+.editor_window_logo{
+  fill: var(--editor-font-primary);;
+  // MSHTML don't support css vars.
+  fill: #474747;
+  max-width: 24px;
+  max-height: 24px;
 }
 
-html {
-    //background: linear-gradient(211.94deg, #21013A 0%, #0E2145 100.57%);
+.editor-bg-primary{
+  background-color: #F5F5F5;
+}
+
+.editor-bg-secondary{
+  background-color: #EAEAEA;
+}
+
+editor-tab-ball{
+  display: block;
+  background: #597EFF;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'IBMPlexSans-Regular';
+  src: url('/statics/fonts/IBMPlexSans-Regular.ttf') format("truetype");
+}
+
+html{
+  background-color: #F5F5F5;
+}
+
+body{
+  font-family: 'IBMPlexSans-Regular';
+  font-size: 14px;
+
+  color: var(--editor-font-primary);
+  // MSHTML don't support css vars.
+    color: #474747;
+  
+
 }

@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-blue-grey-2 full-height" style="overflow-y: hidden!important"
+  <div class="editor-bg-primary full-height" style="overflow-y: hidden!important"
   >
-    <q-bar dense class="bg-blue-grey-7">
-      <q-icon name="account_tree" />
-      <div>Assets</div>
+    <q-bar dense class="editor-bg-secondary">
+      <editor-tab-ball style="background-color: #DB53CD"/>
+      <div>Scene hierarchy</div>
       <q-space />
-      <q-btn size="xs" flat color="blue-grey-3" icon-right="search" :label="filter" no-caps>
+      <q-btn size="xs" flat icon-right="search" :label="filter" no-caps>
         <q-menu anchor="center middle" self="center middle" ref="popup"             style="padding: 0 2px!important"
         >
           <q-input

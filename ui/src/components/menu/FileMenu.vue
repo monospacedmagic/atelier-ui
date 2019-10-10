@@ -277,7 +277,8 @@ export default {
     border 2px solid $grey-6 !important
 
   .menu-item
-    padding-right 10px
+    padding 4px
+    text-align center
 
   .selected-menu
     background-color $grey-6 !important
