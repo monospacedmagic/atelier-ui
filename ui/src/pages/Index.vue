@@ -7,7 +7,7 @@
 
         <FileMenu style="padding-left:5px"></FileMenu>
 
-        <q-btn-dropdown split flat color="primary" icon="bug_report" label="Debug" style=" transform: translateY(-6px) translateX(-22px) scale(0.7)">
+        <q-btn-dropdown split flat color="grey-9 " icon="bug_report" label="Debug" style=" transform: translateY(-6px) translateX(-22px) scale(0.7)">
           <q-list>
             <q-item icon="bug_report" clickable v-close-popup @click="onItemClick">
               <q-item-section>
