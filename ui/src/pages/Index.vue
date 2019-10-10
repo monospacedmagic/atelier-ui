@@ -1,13 +1,13 @@
 <template>
   <q-page class="full-width fixed">
     <div class="q-pa-xs fixed-top full-width editor-bg-primary">
-      <div class="row" style="font-size:0.8em;height:24px">
+      <div class="row items-start" style="font-size:0.8em;height:24px">
 
         <img src="/statics/editor_logo.svg" class="editor_window_logo">
 
         <FileMenu style="padding-left:5px"></FileMenu>
 
-        <q-btn-dropdown split flat color="grey-9 " icon="bug_report" label="Debug" style=" transform: translateY(-6px) translateX(-22px) scale(0.7)">
+        <q-btn-dropdown split flat color="grey-9 " icon="bug_report" label="Debug" style=" transform: translateY(-6px) scale(0.7)">
           <q-list>
             <q-item icon="bug_report" clickable v-close-popup @click="onItemClick">
               <q-item-section>
@@ -16,6 +16,9 @@
             </q-item>
           </q-list>
         </q-btn-dropdown>
+
+        <p class="self-center " >{{project_name}} | Editor</p>
+
       </div>
     </div>
     <q-splitter
@@ -98,6 +101,7 @@ export default {
         model: ''
       },
       status: '[error]: Amethyst.toml project has not been found.',
+      project_name: 'Editor Pong!',
       splitterModel: 70,
       sidebarModel: 70,
       insideModel: 80,

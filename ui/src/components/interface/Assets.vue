@@ -6,7 +6,7 @@
       <div>Entity settings</div>
       <q-space />
       <q-btn size="xs" flat icon-right="search" :label="filter" no-caps>
-        <q-menu anchor="center middle" self="center middle" ref="popup"             style="padding: 0 2px !important"
+        <q-menu anchor="center middle" self="center middle" ref="popup" style="padding: 0 2px !important"
         >
           <q-input
             dense
