@@ -2,7 +2,7 @@
   <div class="editor-bg-primary full-height" style="overflow-y: hidden !important"
   >
     <q-bar dense class="editor-bg-secondary">
-      <editor-tab-ball style="background-color: #53DB61"/>
+      <img src="/statics/editorball.svg" style="fill:#53DB61">
       <div>Content Browser</div>
       <q-space />
       <q-btn size="xs" flat color="blue-grey-3" icon-right="search" :label="filter" no-caps>

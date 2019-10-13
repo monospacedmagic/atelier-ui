@@ -1,24 +1,22 @@
 <template>
   <q-page class="full-width fixed">
     <div class="q-pa-xs fixed-top full-width editor-bg-primary">
-      <div class="row items-start" style="font-size:0.8em;height:24px">
-
-        <img src="/statics/editor_logo.svg" class="editor_window_logo">
-
-        <FileMenu style="padding-left:5px"></FileMenu>
-
+      <div class="row" style="font-size:0.8em;height:24px">
+        <img src="/statics/editor_logo.svg" class="noselect editor_window_logo">
+        <FileMenu class="col self-start noselect" style="padding-left:5px"></FileMenu>
+        <p class="col-2 self-center editor-title" >{{project_name}} | Editor</p>
+        <div class="col justify-end">
         <q-btn-dropdown split flat color="grey-9 " icon="bug_report" label="Debug" style=" transform: translateY(-6px) scale(0.7)">
           <q-list>
-            <q-item icon="bug_report" clickable v-close-popup @click="onItemClick">
+            <q-item icon="bug_report" clickable v-close-popup @click="triggerAssets">
               <q-item-section>
                 <q-item-label icon="bug_report">Release</q-item-label>
               </q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
-
-        <p class="self-center " >{{project_name}} | Editor</p>
-
+        <q-btn @click="triggerAssets" flat color="grey-9 " icon="track_changes" label="Start asset system." style=" transform: translateY(-6px) scale(0.7)" />
+        </div>
       </div>
     </div>
     <q-splitter
@@ -26,7 +24,6 @@
       v-model="splitterModel"
       style="top: 32px;height:calc(100% - 54px);width:calc(100%)"
     >
-
       <template v-slot:after>
         <q-splitter
           v-model="sidebarModel"
@@ -39,7 +36,6 @@
               <Tree :scroll-height="scrollBarTopHeight" />
             </div>
           </template>
-
           <template v-slot:after>
             <div class="full-height editor-bg-secondary">
               <Assets :scroll-height="scrollBarBottomHeight" />
@@ -47,7 +43,6 @@
           </template>
         </q-splitter>
       </template>
-
       <template v-slot:before>
         <q-splitter
           v-model="insideModel"
@@ -55,10 +50,9 @@
         >
           <template v-slot:before>
             <q-bar dense class="editor-bg-secondary">
-              <editor-tab-ball style="background-color: #00C7AF"/>
+              <img src="/statics/editorball.svg" style="fill:#53DB61">
               <div>Canvas</div>
               <q-space />
-
             </q-bar>
             <div class="q-pa-md editor-bg-primary">
               <div class="full-width full-height editor-bg-primary">
@@ -66,15 +60,12 @@
               </div>
             </div>
           </template>
-
           <template v-slot:after>
-            <q-bar dense class="editor-bg-secondary">
-              <editor-tab-ball style="background-color: #DB53CD"/>
-              <div>Console</div>
-            </q-bar>
-            <q-input dense v-model="cmd" value="Enter Cmd" class="q-py-md"></q-input>
-          </template>
+            <q-bar dense class=" editor-bg-secondary">
+              <img src="/statics/editorball.svg" style="fill:#53DB61">
 
+              </q-bar>
+           </template>
         </q-splitter>
       </template>
     </q-splitter>
@@ -89,6 +80,10 @@
 <script>
 import tauri from '../statics/tauri'
 const version = require('app/package.json').version
+
+document.addEventListener('DOMContentLoaded', function () {
+  tauri.invoke({ cmd: 'init' })
+})
 
 export default {
   name: 'General',
@@ -106,11 +101,19 @@ export default {
       sidebarModel: 70,
       insideModel: 80,
       scrollBarTopHeight: 200,
-      scrollBarBottomHeight: 200
+      scrollBarBottomHeight: 200,
+      entry: 'Don\'t be eval',
+      sendEvt: false
     }
   },
   mounted () {
     this.resizeScroll(this.sidebarModel)
+    tauri.addEventListener('reply', res => {
+      console.table(res)
+      this.entry = res.payload.msg
+      alert(res.payload.msg)
+      this.sendEvt = false
+    }, true)
     /* SMOKE TEST
     setTimeout(() => {
       this.$q.notify('Calling command...')
@@ -126,15 +129,16 @@ export default {
    */
   },
   methods: {
-    getFiles () {
-      tauri.listFiles(this.path)
-        .then(files => {
-          this.files = files
-        })
-        .catch(err => {
-          this.files = []
-          this.$q.notify(err)
-        })
+    triggerAssets () {
+      tauri.invoke({ cmd: 'emit', event: 'hello', payload: this.entry })
+      tauri.addEventListener('reply', res => {
+        console.table(res)
+        this.entry = res.payload.msg
+        alert(res.payload.msg)
+        this.sendEvt = false
+      }, true)
+      // tauri.emit('hello', this.entry)
+      // tauri.emit is shorthand for: tauri.invoke({ cmd: 'emit', event: 'hello', payload: this.entry })
     },
     arrayBufferToBase64 (buffer, callback) {
       var blob = new Blob([buffer], { type: 'application/octet-binary' })
@@ -144,30 +148,6 @@ export default {
         callback(dataurl.substr(dataurl.indexOf(',') + 1))
       }
       reader.readAsDataURL(blob)
-    },
-    onFileClick (file) {
-      if (file.is_dir) {
-        this.$q.notify('Dir click not implemented')
-      } else {
-        let promise
-        if (file.path.includes('.png') || file.path.includes('.jpg')) {
-          promise = tauri.readBinaryFile(file.path)
-            .then(contents => {
-              this.arrayBufferToBase64(new Uint8Array(contents), base64 => {
-                this.href = 'data:image/png;base64,' + base64
-              })
-            })
-        } else {
-          promise = tauri.readTextFile(file.path)
-            .then(contents => {
-              this.$q.dialog({
-                title: file.path,
-                message: contents
-              })
-            })
-        }
-        promise.catch(err => this.$q.notify(err))
-      }
     },
     resizeScroll (size) {
       const h = document.getElementById('treeContainer').getBoundingClientRect()

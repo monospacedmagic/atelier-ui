@@ -2,7 +2,7 @@
   <div class="editor-bg-primary full-height" style="overflow-y: hidden!important"
   >
     <q-bar dense class="editor-bg-secondary">
-      <editor-tab-ball style="background-color: #DB53CD"/>
+      <img src="/statics/editorball.svg" style="fill:#53DB61">
       <div>Scene hierarchy</div>
       <q-space />
       <q-btn size="xs" flat icon-right="search" :label="filter" no-caps>
