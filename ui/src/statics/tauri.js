@@ -29,24 +29,24 @@ const uid = function () {
 
 const tauri = {
   invoke (args) {
-    console.log(args)
+    // console.log(args)
     Object.freeze(args)
-    external.invoke(JSON.stringify(args))
+    window.external.invoke(JSON.stringify(args))
   },
 
-  addEventListener (event, handler, once = false) {
+  addEventListener (evt, handler, once = false) {
     this.invoke({
       cmd: 'addEventListener',
-      event,
+      evt,
       handler: this.transformCallback(handler, once),
       once
     })
   },
 
-  emit (event, payload) {
+  emit (evt, payload) {
     this.invoke({
       cmd: 'emit',
-      event: event,
+      event: evt,
       payload
     })
   },
@@ -123,4 +123,5 @@ const tauri = {
     return this.promisified({ cmd: 'bridge', command, payload: typeof (payload) === 'object' ? [payload] : payload })
   }
 }
+
 export default tauri
