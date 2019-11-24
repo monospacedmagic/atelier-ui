@@ -31,3 +31,10 @@ then:
 ```
 $ yarn tauri dev
 ```
+
+If you want to build it:
+```
+$ cd ui
+$ cargo install --path node_modules/@tauri-apps/tauri/tools/rust/cargo-tauri-bundle --force
+$ yarn tauri build
+```
