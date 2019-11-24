@@ -25,12 +25,12 @@ tiny_http = "0.6"
 phf = "0.7.21"
 includedir = "0.5.0"
 
-  [dependencies.tauri-ui]
-  path = "../node_modules/@tauri-apps/tauri/bindings/rust"
-
   [dependencies.tauri]
   path = "../node_modules/@tauri-apps/tauri/lib/rust"
-  features = [ "all-api" ]
+  features = [ "edge", "all-api" ]
+
+  [dependencies.tauri-ui]
+  path = "../node_modules/@tauri-apps/tauri/bindings/rust"
 
 [features]
 dev = [ "tauri/dev" ]

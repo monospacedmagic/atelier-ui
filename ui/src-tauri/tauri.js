@@ -1,5 +1,6 @@
+/* eslint-disable */
 /**
- * THIS FILE IS GENERATED AUTOMATICALLY.
+ *  * THIS FILE IS GENERATED AUTOMATICALLY.
  * DO NOT EDIT.
  *
  * Please whitelist these API functions in 
@@ -58,12 +59,12 @@ const __reject = new Promise((reject) => { reject })
 export default class Tauri {
 
   static invoke (args) {
-  Object.freeze(args)
-    external.invoke(JSON.stringify(args))
+    Object.freeze(args)
+    window.external.invoke(JSON.stringify(args))
   }
 
 
-  static addEventListener(evt, handler, once = false) {
+  static addEventListener (evt, handler, once = false) {
     this.invoke({
       cmd: 'addEventListener',
       evt,
@@ -74,12 +75,12 @@ export default class Tauri {
 
 
   static emit(evt, payload) {
-  this.invoke({
-    cmd: 'emit',
-    evt,
-    payload
-  })
-}
+    this.invoke({
+      cmd: 'emit',
+      event: evt,
+      payload
+    })
+  }
 
 
   static transformCallback (callback, once = true) {
