@@ -1,22 +1,20 @@
 <template>
   <q-page class="full-width fixed">
     <div class="q-pa-xs fixed-top full-width editor-bg-primary">
-      <div class="row" style="font-size:0.8em;height:24px">
+      <div class="row items-center justify-between" style="font-size:0.8em;height:24px">
         <img src="/statics/editor_logo.svg" class="noselect editor_window_logo">
         <FileMenu class="col self-start noselect" style="padding-left:5px"></FileMenu>
-        <p class="col-2 self-center editor-title" >{{project_name}} | Editor</p>
-        <div class="col justify-end">
-        <q-btn-dropdown split flat color="grey-9 " icon="bug_report" label="Debug" style=" transform: translateY(-6px) scale(0.7)">
-          <q-list>
-            <q-item icon="bug_report" clickable v-close-popup @click="triggerAssets">
-              <q-item-section>
-                <q-item-label icon="bug_report">Release</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-btn-dropdown>
-        <q-btn @click="triggerAssets" flat color="grey-9 " icon="track_changes" label="Start asset system." style=" transform: translateY(-6px) scale(0.7)" />
-        </div>
+        <div class="col justify-center editor-title" >{{project_name}} | Editor</div>
+          <q-btn-dropdown split size="12px" dense no-caps flat color="grey-9 " class="col justify-end" icon="bug_report" label="Debug">
+            <q-list>
+              <q-item icon="bug_report" clickable v-close-popup @click="triggerAssets">
+                <q-item-section>
+                  <q-item-label icon="bug_report">Release</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+          <q-btn @click="triggerAssets" size="12px" dense no-caps flat color="grey-9 " class="col justify-end" icon="track_changes" label="Start asset system."/>
       </div>
     </div>
     <q-splitter
@@ -32,14 +30,12 @@
           id="treeContainer"
         >
           <template v-slot:before id="tree">
-            <div class="full-height editor-bg-secondary">
-              <Tree :scroll-height="scrollBarTopHeight" />
-            </div>
+            <Dock>
+            </Dock>
           </template>
           <template v-slot:after>
-            <div class="full-height editor-bg-secondary">
-              <Assets :scroll-height="scrollBarBottomHeight" />
-            </div>
+            <Dock>
+            </Dock>
           </template>
         </q-splitter>
       </template>
@@ -49,29 +45,19 @@
           horizontal
         >
           <template v-slot:before>
-            <q-bar dense class="editor-bg-secondary">
-              <img src="/statics/editorball.svg" style="fill:#53DB61">
-              <div>Canvas</div>
-              <q-space />
-            </q-bar>
-            <div class="q-pa-md editor-bg-primary">
-              <div class="full-width full-height editor-bg-primary">
-                <canvas id="mainCanvas" height="100%" width="100%"></canvas>
-              </div>
-            </div>
+            <Dock>
+            </Dock>
           </template>
           <template v-slot:after>
-            <q-bar dense class=" editor-bg-secondary">
-              <img src="/statics/editorball.svg" style="fill:#53DB61">
-
-              </q-bar>
-           </template>
+            <Dock>
+            </Dock>
+          </template>
         </q-splitter>
       </template>
     </q-splitter>
     <div class="q-pa-xs fixed-bottom full-width editor-bg-secondary">
       <div style="margin-left:4px;font-size:0.8em;height:14px;">
-        : {{ status }}
+        {{ status }}
       </div>
     </div>
   </q-page>

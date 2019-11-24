@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-bar id="toolbar" dense dark class="text-white row">
       <div class="text-weight-bold absolute-top full-width text-center relative-position tauri-drag" style="margin-top:1px">
-        <span class="tauri-drag">Amethyst | {{ title }}</span>
+        <p class="tauri-drag">Amethyst | {{ title }}</p>
       </div>
       <MacButtons v-if="$q.platform.is.mac"></MacButtons>
       <file-menu style="z-index:10"/>
