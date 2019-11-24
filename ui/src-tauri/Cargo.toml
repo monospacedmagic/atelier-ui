@@ -1,5 +1,5 @@
 [package]
-name = "editor"
+name = "app"
 version = "0.1.0"
 description = "The official Amethyst editor."
 author = [ "mralve <mralve@amethyst-engine.org>" ]
@@ -8,7 +8,7 @@ repository = ""
 default-run = "app"
 
 [package.metadata.bundle]
-identifier = "com.tauri.dev"
+identifier = "com.amethyst.dev"
 icon = [
   "icons/32x32.png",
   "icons/128x128.png",
@@ -18,27 +18,20 @@ icon = [
 ]
 
 [dependencies]
-serde_json = "1.0.39"
+serde_json = "1.0.41"
 serde = "1.0"
 serde_derive = "1.0"
 tiny_http = "0.6"
-phf = "0.7.21"
+phf = "0.7.24"
 includedir = "0.5.0"
 
   [dependencies.tauri]
   path = "../node_modules/@tauri-apps/tauri/lib/rust"
   features = [ "edge", "all-api" ]
 
-  [dependencies.tauri-ui]
-  path = "../node_modules/@tauri-apps/tauri/bindings/rust"
-
 [features]
 dev = [ "tauri/dev" ]
 embedded-server = [ "tauri/embedded-server" ]
-
-[[bin]]
-name = "updater"
-path = "src/updater.rs"
 
 [[bin]]
 name = "app"

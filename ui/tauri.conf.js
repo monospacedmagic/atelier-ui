@@ -1,12 +1,11 @@
-const
-  path = require('path'),
-  distDir = path.resolve(__dirname, './dist/spa')
+const path = require('path')
+const distDir = path.resolve(__dirname, './dist/spa')
 
 module.exports = function () {
   return {
     build: {
       distDir: distDir,
-      APP_URL: 'http://localhost:7551'  // must use a localhost server for now
+      APP_URL: 'http://localhost:7551' // must use a localhost server for now
     },
     ctx: {},
     tauri: {
@@ -25,6 +24,7 @@ module.exports = function () {
       security: {
         csp: 'default-src data: filesystem: ws: http: https: \'unsafe-eval\' \'unsafe-inline\''
       }
-    }
+    },
+    edge: true
   }
 }

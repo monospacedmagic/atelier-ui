@@ -109,7 +109,7 @@ export default {
   mounted () {
     this.resizeScroll(this.sidebarModel)
     tauri.addEventListener('reply', res => {
-      console.table(res)
+      // console.table(res)
       this.entry = res.payload.msg
       alert(res.payload.msg)
       this.sendEvt = false
@@ -132,7 +132,7 @@ export default {
     triggerAssets () {
       tauri.invoke({ cmd: 'emit', event: 'hello', payload: this.entry })
       tauri.addEventListener('reply', res => {
-        console.table(res)
+        // console.table(res)
         this.entry = res.payload.msg
         alert(res.payload.msg)
         this.sendEvt = false

@@ -75,6 +75,9 @@ module.exports = function (ctx) {
             formatter: require('eslint').CLIEngine.getFormatter('stylish')
           }
         })
+      },
+      chainWebpack (chain) {
+        process.env.TAURI && require('@tauri-apps/tauri/mode/webpack').chain(chain)
       }
     },
 
@@ -164,7 +167,7 @@ module.exports = function (ctx) {
         // win32metadata: { ... }
       },
 
-      chainWebpack (chain) {      
+      chainWebpack (chain) {
         process.env.TAURI && require('@tauri-apps/tauri/mode/webpack').chain(chain)
         module.exports = function () {
           return {

@@ -13,22 +13,22 @@
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"No test specified\" && exit 0",
     "dev:quasar": "quasar dev",
-    "dev:tauri": "node node_modules/@tauri-apps/tauri/mode/bin/tauri dev",
+    "dev:tauri": "yarn tauri dev",
     "tauri-dev": "TAURI=true quasar dev",
-    "tauri-build": "TAURI=true quasar build && tauri build"
+    "tauri-build": "TAURI=true quasar build && yarn tauri build"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
-    "quasar": "^1.2.1",
+    "quasar": "^1.4.5",
     "vue-i18n": "^8.0.0",
     "vue-moveable": "^0.3.1"
   },
   "devDependencies": {
-    "@quasar/app": "^1.2.1",
+    "@quasar/app": "^1.2.4",
     "@quasar/quasar-app-extension-colorize": "^1.0.0-alpha.1",
     "@quasar/quasar-app-extension-qwindow": "^1.0.0-alpha.10",
-    "@tauri-apps/tauri": "^0.0.1-utility.16",
+    "@tauri-apps/tauri": "^0.0.1-utility.19",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",
