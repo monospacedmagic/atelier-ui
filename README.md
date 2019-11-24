@@ -18,7 +18,7 @@ $ cd ui && yarn
 $ yarn quasar dev
 ``` 
 #### note the port that quasar launches on, eg. :7551
-> edit ui/tauri.conf.js
+> ui/tauri.conf.js
 
 ```yaml
     build: {
@@ -34,7 +34,7 @@ $ yarn tauri dev
 
 If you want to build it:
 ```
-$ cd ui
+$ cd editor
 $ cargo install --path node_modules/@tauri-apps/tauri/tools/rust/cargo-tauri-bundle --force
 $ yarn tauri build
 ```
