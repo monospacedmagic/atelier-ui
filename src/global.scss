@@ -1,0 +1,10 @@
+// This file is removing default styling.
+html, body {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+* {
+    ::selection { background: var(--text-selection) !important; /* WebKit/Blink Browsers */ }
+    ::-moz-selection { background: var(--text-selection) !important; /* Gecko Browsers */ }
+}

@@ -1,3 +1,4 @@
+:root{--text-selection:#ffed50;--background:#191919;--surface:#232323} .testcolor {background-color:var(--background) !important}
 .editor-frame.svelte-yzr4cw{margin:0px;padding:10px;background-color:rgb(48, 48, 48);height:100%;color:#fff}
 button.svelte-x19lqx{display:flex;color:#fff;background-color:#464646;border-radius:3px;-webkit-transition:0.5s;transition:0.5s;-webkit-transition:0.2s;margin:2px;padding:3px;border:solid rgb(94, 94, 94) 1px;outline:none}button.svelte-x19lqx:hover{background-color:#636363}button.svelte-x19lqx:active{background-color:#5a6881}
 .n_pannel.svelte-ltoro5{padding:5px}
