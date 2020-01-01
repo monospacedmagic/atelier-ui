@@ -1,0 +1,42 @@
+workspace = { }
+
+[package]
+name = "atelier-ui"
+version = "0.1.0"
+description = "Atelier UI Tauri app"
+author = [ "Alve Larsson <mralve@amethyst-engine.org>" ]
+license = ""
+repository = ""
+default-run = "app"
+edition = "2018"
+
+[package.metadata.bundle]
+identifier = "com.amethyst.atelierui"
+icon = [
+  "icons/32x32.png",
+  "icons/128x128.png",
+  "icons/128x128@2x.png",
+  "icons/icon.icns",
+  "icons/icon.ico"
+]
+
+[dependencies]
+serde_json = "1.0.44"
+serde = "1.0"
+serde_derive = "1.0"
+tiny_http = "0.6"
+phf = "0.8.0"
+includedir = "0.5.0"
+
+  [dependencies.tauri]
+  tauri = "0.2.0"
+  features = [ "edge" ]
+
+[features]
+dev-server = [ "tauri/dev-server" ]
+embedded-server = [ "tauri/embedded-server" ]
+no-server = [ "tauri/no-server" ]
+
+[[bin]]
+name = "app"
+path = "src/main.rs"

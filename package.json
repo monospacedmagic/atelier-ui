@@ -1,0 +1,43 @@
+{
+  "name": "atelier-ui",
+  "description": "Editor",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amethyst/atelier-ui.git"
+  },
+  "keywords": [
+    "editor",
+    "amethyst"
+  ],
+  "author": "Alve Larsson <mralve@amethyst-engine.org>",
+  "license": "MIT",
+  "scripts": {
+    "start": "sirv public",
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "test": "echo \"No test specified\" && exit 0",
+    "tauri:prod": "tauri",
+    "tauri:source": "node ../../../cli/tauri.js/bin/tauri",
+    "tauri:source:init": "yarn tauri:source init --tauriPath ../../../tauri",
+    "tauri:prod:init": "yarn tauri:prod init",
+    "tauri:source:dev": "yarn tauri:source dev",
+    "tauri:prod:dev": "yarn tauri:prod dev",
+    "tauri:source:build": "yarn tauri:source build",
+    "tauri:prod:build": "yarn tauri:prod build"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "6.0.0",
+    "rollup": "1.27.14",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-livereload": "1.0.4",
+    "rollup-plugin-svelte": "5.1.1",
+    "rollup-plugin-terser": "5.1.3",
+    "rollup-plugin-postcss": "^2.0.3",
+    "sass": "^1.24.0",
+    "sirv-cli": "0.4.5"
+  },
+  "dependencies": {
+    "svelte": "3.16.7"
+  }
+}
