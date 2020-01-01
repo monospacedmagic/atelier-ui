@@ -20,6 +20,6 @@
 		width: 100%;
 		height: 30px;
 		display: flex;
-		background-color: rgb(29, 29, 29);
+		background-color: var(--surface);
     }
 </style>

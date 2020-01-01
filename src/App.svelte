@@ -23,7 +23,7 @@
 	.editor-frame{
 		margin: 0px;
 		padding: 10px;
-		background-color: rgb(48, 48, 48);
+		background-color: var(--background);
 		height: 100%;
 		color: #fff;
 	}

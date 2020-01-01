@@ -14,12 +14,19 @@
     let OnPrimary = '#000';
     let OnSecondary = '#000';
 
-    let root = document.documentElement;
+    let style = document.documentElement.style;
 
     function updateTheme ( ) { 
-        root.style.setProperty('--text-selection', Selection);
+        style.setProperty('--text-selection', Selection);
 
-        root.style.setProperty('--background', Background);
+        style.setProperty('--background', Background);
+        style.setProperty('--surface', Surface);
+        style.setProperty('--primary', Primary);
+        style.setProperty('--secondary', Secondary);
+        style.setProperty('--on-background', OnBackground);
+        style.setProperty('--on-surface', OnSurface);
+        style.setProperty('--on-primary', OnPrimary);
+        style.setProperty('--on-secondary', OnSecondary);
     }
 
 </script>
@@ -30,7 +37,12 @@
 
         --background: #191919;
         --surface: #232323;
-
+        --primary: #bd88f6;
+        --secondary: #00d8c6;
+        --on-background: #fff;
+        --on-surface: #fff;
+        --on-primary: #000;
+        --on-secondary: #000;
     }
 
     :global( .testcolor ){
