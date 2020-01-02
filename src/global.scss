@@ -9,3 +9,7 @@ html, body {
     ::selection { background: var(--text-selection) !important; /* WebKit/Blink Browsers */ }
     ::-moz-selection { background: var(--text-selection) !important; /* Gecko Browsers */ }
 }
+
+::-moz-focus-inner {
+    border: 0;
+}

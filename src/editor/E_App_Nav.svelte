@@ -1,17 +1,13 @@
 <script>
     import E_Button from './E_Button.svelte'
 
-    let entrys = [
-		{ lable: 'File' },
-		{ lable: 'Edit' },
-		{ lable: 'Settings' }
-	];
+    export let entrys;
 
 </script>
 
-<div class="app_nav red">
+<div class="app_nav">
 	{#each entrys as item}
-		<E_Button name={item.lable} />
+		<E_Button flat name={item.lable} />
 	{/each}
 </div>
 

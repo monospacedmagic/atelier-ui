@@ -7,17 +7,19 @@
 	const test = () => {
 		alert("test");
 	};
+
+	let filemenu = [
+		{ lable: 'File' },
+		{ lable: 'Edit' },
+		{ lable: 'Settings' }
+	];
 </script>
 
-<E_App_Nav />
+
+<E_App_Nav entrys={filemenu} />
 <div class="editor-frame testcolor">
-	<h1>Hello, Amethyst!</h1>
-	<E_Pannel>
-		<E_Button name='This is a nice button' onclick={test} />
-		<E_Button onclick={test} />
-		<E_Input_Ranger />
-	</E_Pannel>
 </div>
+
 
 <style>
 	.editor-frame{
