@@ -1,6 +1,5 @@
 <script>
     export let pannel_name = 'New Pannel';
-
 </script>
 
 <div class="n_pannel">

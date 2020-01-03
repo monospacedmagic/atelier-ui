@@ -26,7 +26,8 @@
     transition: 0.5s;
     -webkit-transition: 0.2s;
     margin: 0px;
-    padding: auto 20px;
+    padding: 6px 6px;
+    font-size: 14px;
     border: none;
     outline: none;
   }
