@@ -1,5 +1,5 @@
 <script>
-    import E_Button from './E_Button.svelte'
+    import EditorButton from './EditorButton.svelte'
 
     export let entrys;
 
@@ -7,7 +7,7 @@
 
 <div class="app_nav">
 	{#each entrys as item}
-		<E_Button flat name={item.lable} />
+		<EditorButton flat name={item.lable} />
 	{/each}
 </div>
 

@@ -1,10 +1,10 @@
 <script>
-	import E_Button from './editor/E_Button.svelte'
-	import E_Pannel from './editor/E_Pannel.svelte'
-	import E_Input_Ranger from './editor/E_Input_Ranger.svelte'
-	import E_App_Nav from './editor/E_App_Nav.svelte'
-	import E_Dock from './editor/E_Dock.svelte'
-	import SplitPane from './editor/E_Splitter.svelte';
+	import EditorButton from './editor/EditorButton.svelte'
+	import EditorPannel from './editor/EditorPannel.svelte'
+	import EditorInputRanger from './editor/EditorInputRanger.svelte'
+	import EditorAppNav from './editor/EditorAppNav.svelte'
+	import EditorDock from './editor/EditorDock.svelte'
+	import EditorSpliter from './editor/EditorSplitter.svelte';
 	
 	export let fixed = false;
 	export let fixedPos = 50;
@@ -23,33 +23,33 @@
 
 
 <div class="editor-frame">
-	<E_App_Nav entrys={filemenu} />
+	<EditorAppNav entrys={filemenu} />
 
-	<SplitPane
+	<EditorSpliter
 		type="{orientation === 'rows' ? 'vertical' : 'horizontal'}"
 		pos="{fixed ? fixedPos : orientation === 'rows' ? 50 : 60}"
 		{fixed}
 	>
 		<section slot=a>
-			<E_Dock />
+			<EditorDock />
 		</section>
 
 		<section slot=b style='height: 100%;'>
-				<SplitPane
+				<EditorSpliter
 					type="{'rows' === 'rows' ? 'vertical' : 'horizontal'}"
 					pos="{fixed ? fixedPos : orientation === 'rows' ? 50 : 60}"
 					{fixed}
 				>
 					<section slot=a>
-						<E_Dock />
+						<EditorDock />
 					</section>
 
 					<section slot=b style='height: 100%;'>
-						<E_Dock />
+						<EditorDock />
 					</section>
-				</SplitPane>
+				</EditorSpliter>
 		</section>
-	</SplitPane>
+	</EditorSpliter>
 </div>
 
 
