@@ -7,7 +7,7 @@
 	export let type = 'columns';
 	export let pos = 50;
 	export let fixed = false;
-	export let buffer = 40;
+	export let buffer = 0;
 	export let min;
 	export let max;
 
@@ -113,9 +113,9 @@
 	}
 
 	.horizontal::after {
-		left: 2px;
+		left: 0px;
 		top: 0;
-		width: 1px;
+		width: 0px;
 		height: 100%;
 	}
 
@@ -161,7 +161,7 @@
 	</div>
 
 	{#if !fixed}
-		<div class="{type} divider" style="{side}: calc({pos}% - 8px)" use:drag={setPos}></div>
+		<div class="{type} divider" style="{side}: calc({pos}% - 0px)" use:drag={setPos}></div>
 	{/if}
 </div>
 

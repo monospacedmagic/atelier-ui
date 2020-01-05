@@ -661,7 +661,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div, "class", "app_nav svelte-1be8890");
+    			attr_dev(div, "class", "app_nav svelte-zfdebf");
     			add_location(div, file$1, 7, 0, 90);
     		},
     		l: function claim(nodes) {
@@ -804,9 +804,9 @@ var app = (function () {
     			div = element("div");
     			h1 = element("h1");
     			h1.textContent = "DOCK TABS HERE.";
-    			attr_dev(h1, "class", "svelte-n1an55");
+    			attr_dev(h1, "class", "svelte-v5c4rk");
     			add_location(h1, file$2, 5, 4, 42);
-    			attr_dev(div, "class", "dock svelte-n1an55");
+    			attr_dev(div, "class", "dock svelte-v5c4rk");
     			add_location(div, file$2, 4, 0, 21);
     		},
     		l: function claim(nodes) {
@@ -871,20 +871,20 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", div_class_value = "" + (/*type*/ ctx[1] + " divider" + " svelte-1btpbtt"));
-    			attr_dev(div, "style", div_style_value = "" + (/*side*/ ctx[7] + ": calc(" + /*pos*/ ctx[0] + "% - 8px)"));
-    			add_location(div, file$3, 163, 2, 2789);
+    			attr_dev(div, "class", div_class_value = "" + (/*type*/ ctx[1] + " divider" + " svelte-76gfoc"));
+    			attr_dev(div, "style", div_style_value = "" + (/*side*/ ctx[7] + ": calc(" + /*pos*/ ctx[0] + "% - 0px)"));
+    			add_location(div, file$3, 163, 2, 2788);
     			dispose = action_destroyer(drag_action = /*drag*/ ctx[10].call(null, div, /*setPos*/ ctx[9]));
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*type*/ 2 && div_class_value !== (div_class_value = "" + (/*type*/ ctx[1] + " divider" + " svelte-1btpbtt"))) {
+    			if (dirty & /*type*/ 2 && div_class_value !== (div_class_value = "" + (/*type*/ ctx[1] + " divider" + " svelte-76gfoc"))) {
     				attr_dev(div, "class", div_class_value);
     			}
 
-    			if (dirty & /*side, pos*/ 129 && div_style_value !== (div_style_value = "" + (/*side*/ ctx[7] + ": calc(" + /*pos*/ ctx[0] + "% - 8px)"))) {
+    			if (dirty & /*side, pos*/ 129 && div_style_value !== (div_style_value = "" + (/*side*/ ctx[7] + ": calc(" + /*pos*/ ctx[0] + "% - 0px)"))) {
     				attr_dev(div, "style", div_style_value);
     			}
     		},
@@ -912,8 +912,8 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "mousecatcher svelte-1btpbtt");
-    			add_location(div, file$3, 168, 1, 2908);
+    			attr_dev(div, "class", "mousecatcher svelte-76gfoc");
+    			add_location(div, file$3, 168, 1, 2907);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -966,15 +966,15 @@ var app = (function () {
     			t2 = space();
     			if (if_block1) if_block1.c();
     			if_block1_anchor = empty();
-    			attr_dev(div0, "class", "pane svelte-1btpbtt");
+    			attr_dev(div0, "class", "pane svelte-76gfoc");
     			attr_dev(div0, "style", div0_style_value = "" + (/*dimension*/ ctx[8] + ": " + /*pos*/ ctx[0] + "%;"));
-    			add_location(div0, file$3, 154, 1, 2600);
-    			attr_dev(div1, "class", "pane svelte-1btpbtt");
+    			add_location(div0, file$3, 154, 1, 2599);
+    			attr_dev(div1, "class", "pane svelte-76gfoc");
     			attr_dev(div1, "style", div1_style_value = "" + (/*dimension*/ ctx[8] + ": " + (100 - /*pos*/ ctx[0]) + "%;"));
-    			add_location(div1, file$3, 158, 1, 2683);
-    			attr_dev(div2, "class", "container svelte-1btpbtt");
+    			add_location(div1, file$3, 158, 1, 2682);
+    			attr_dev(div2, "class", "container svelte-76gfoc");
     			add_render_callback(() => /*div2_elementresize_handler*/ ctx[19].call(div2));
-    			add_location(div2, file$3, 153, 0, 2505);
+    			add_location(div2, file$3, 153, 0, 2504);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1084,7 +1084,7 @@ var app = (function () {
     	let { type = "columns" } = $$props;
     	let { pos = 50 } = $$props;
     	let { fixed = false } = $$props;
-    	let { buffer = 40 } = $$props;
+    	let { buffer = 0 } = $$props;
     	let { min } = $$props;
     	let { max } = $$props;
     	let w;

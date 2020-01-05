@@ -14,5 +14,7 @@
     h1{
         text-align: center;
         vertical-align: middle;
+        padding: 0px;
+        margin: 0px;
     }
 </style>

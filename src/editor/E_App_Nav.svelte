@@ -18,5 +18,6 @@
 		display: flex;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37) !important;
 		background-color: var(--surface);
+		z-index: 100;
     }
 </style>
