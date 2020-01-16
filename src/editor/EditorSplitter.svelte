@@ -97,7 +97,7 @@
 	}
 
 	.divider:hover, .divider:active{
-		background-color: var(--primary);
+		filter: brightness(1.5);
 	}
 
 	.divider::after {
@@ -110,6 +110,7 @@
 		width: 0;
 		height: 100%;
 		cursor: ew-resize;
+		margin-right: 50px;
 	}
 
 	.horizontal::after {

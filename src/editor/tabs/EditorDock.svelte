@@ -1,8 +1,11 @@
 <script>
-
+    import tab from './EditorTab.svelte'
 </script>
 
 <div class=dock>
+    <div class="app_nav">
+        <tab name="hello" />
+    </div>
     <h1>DOCK TABS HERE.</h1>
 </div>
 
