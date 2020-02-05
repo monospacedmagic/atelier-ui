@@ -3,14 +3,13 @@
     export let name;
 </script>
 
-<tab class=tab>
+<div class=tab>
     <p>icon</p>
     <p>{name}</p>
     <p> X </p>
 
     <EditorButton name="HEd" />
-    
-</tab>
+</div>
 
 <style>
     tab{

@@ -9,6 +9,9 @@ https://community.amethyst.rs/t/atelier-mvp-discussion/1167
 
 Ensure you have setup and installed all the project dependencies.
 
+- Note Windows users! make sure to follow the following steps to ensure Tauri will work on your system.
+https://github.com/tauri-apps/tauri/wiki/04.-MS-Windows-Setup
+
 ```
 npm install -g tauri
 git clone https://github.com/tauri-apps/tauri
