@@ -1,19 +1,15 @@
 <script>
-    export let flat = false;
-    export let name = 'button';
-    
-    export let onclick;
+  export let flat = false;
+  export let name = 'button';
+
+  export let onclick;
 </script>
 
-<button on:click={onclick} class:flat >
-  {name}
-</button>
-
 <style>
-  .flat{
+  .flat {
     background-color: var(--surface) !important;
     border-radius: 0px;
-    color: #fff
+    color: #fff;
   }
 
   button {
@@ -39,3 +35,5 @@
     filter: brightness(0.7);
   }
 </style>
+
+<button on:click={onclick} class:flat>{name}</button>
