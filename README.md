@@ -1,4 +1,4 @@
-![editor](https://raw.githubusercontent.com/mralve/atelier-editor/master/repo-content/editor.png)
+![editor](https://raw.githubusercontent.com/amethyst/atelier-ui/svelte-based-editor/repo-res/editor.png)
 
 # The Atelier project
 The editor is part of the Atelier project, the editor is referred to as Atelier-Ui, while Atelier-assets is the actual asset system that will be integrated into amethyst.
